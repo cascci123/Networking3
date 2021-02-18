@@ -10,7 +10,7 @@ def webserver(port=13331):
     # Fill in start
     serverSocket.bind(('', port))
     # Fill in end
-    serverSocket.listen(5)
+    serverSocket.listen(1)
     while True:
         # Establish the connection
         print('Ready to serve...')
@@ -20,10 +20,9 @@ def webserver(port=13331):
             filename = message.split()[1]
             f = open(filename[1:])
             outputdata = f.read()  # Fill in start     #Fill in end
-            print(outputdata)
             # Send one HTTP header line into socket
             # Fill in start
-            connectionSocket.send("HTTP/1.1 200 OK\r\n\r\n".encode())
+            connectionSocket.send('HTTP/1.1 200 OK\r\n\r\n'.encode())
 
             # Fill in end
 
@@ -36,9 +35,9 @@ def webserver(port=13331):
         except IOError:
             # Send response message for file not found (404)
             # Fill in start
-            connectionSocket.send("HTTP 1.1 404 Not Found\r\n".encode())
-            connectionSocket.send("Consent-Type: text/html\r\n\r\n".encode())
-            connectionSocket.send("<html><body><h1>404 Not Found</h1></body></html>\r\n".encode())
+            connectionSocket.send('HTTP 1.1 404 Not Found\n\n'.encode())
+            connectionSocket.send('Consent-Type: text/html\r\n\r\n'.encode())
+            connectionSocket.send('<html><body><h1>404 Not Found</h1></body></html>\r\n'.encode())
 
         # Fill in end
 
@@ -47,8 +46,8 @@ def webserver(port=13331):
             connectionSocket.close()
         # Fill in end
 
-    serverSocket.close()
-    sys.exit()  # Terminate the program after sending the corresponding data
+        #serverSocket.close()
+        sys.exit()  # Terminate the program after sending the corresponding data
 
 
 if __name__ == "__main__":
