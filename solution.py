@@ -4,7 +4,7 @@ import sys  # In order to terminate the program
 
 
 def webServer(port=13331):
-    serverSocket = solution(AF_INET, SOCK_STREAM)
+    serverSocket = socket(AF_INET, SOCK_STREAM)
 
     # Prepare a sever socket
     HOST = '127.0.0.1'
