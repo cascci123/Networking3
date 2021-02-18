@@ -7,10 +7,10 @@ def webServer(port=13331):
     serverSocket = socket(AF_INET, SOCK_STREAM)
 
     # Prepare a sever socket
-    HOST = "127.0.0.1"
-    PORT = 13331
+    #HOST = "127.0.0.1"
+    #PORT = 13331
     # Fill in start
-    serverSocket.bind((HOST, PORT))
+    serverSocket.bind(("127.0.0.1", 13331))
     # Fill in end
     serverSocket.listen()
     while True:
