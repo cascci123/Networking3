@@ -10,7 +10,7 @@ def webServer(port=13331):
     #HOST = '127.0.0.1'
     #PORT = 13331
     # Fill in start
-    serverSocket.bind(('127.0.0.1', 13331))
+    serverSocket.bind(('127.0.0.1', port))
     # Fill in end
     serverSocket.listen()
     while True:
@@ -42,7 +42,7 @@ def webServer(port=13331):
 
     # Close client socket
     # Fill in start
-            connectionSocket.close()
+        connectionSocket.close()
     # Fill in end
 
     serverSocket.close()
